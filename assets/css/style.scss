@@ -9,8 +9,11 @@
 
 }
 
+// #C89A36
+
 $integral: 'integral_cfbold';
 $primary_color: #771114;
+$sec_color: #C89A36;
 $monsterrat: 'Montserrat', sans-serif;
 
 * {
@@ -79,7 +82,7 @@ h2 {
     position: fixed;
     z-index: 10;
     inset: 0;
-    background-color: $primary_color;
+    background-color: $sec_color;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,19 +94,26 @@ h2 {
     }
     .cards{
         transform: translateX(-100px) translateY(0px);
+        // animation: name duration timing-function delay iteration-count direction fill-mode;
         animation: upp 4s cubic-bezier(.1,1.48,.67,.89) 0s 1 ;
         .first, .second{
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 400px;
-            height: 400px;
+            width: 350px;
+            height: 430px;
             background-color: #fff;
         }
         .first{
             transform: translate(-50%, -250%) rotate(-8deg);
+            background-image: url("/assets/images/5.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
         }
         .second{
+            background-image: url("/assets/images/6.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
             transform: translate(-50%, -400%) rotate(-8deg);
         }
         .main{
@@ -111,9 +121,12 @@ h2 {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) rotate(-8deg);
-            width: 400px;
-            height: 400px;
-            background-color: #fff;
+            width: 350px;
+            height: 430px;
+            background: #fff;
+            // background-image: url("/assets/images/6.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
             mix-blend-mode: multiply;
         }
     }
@@ -210,12 +223,14 @@ hr {
         place-items: center;
 
         .image_itself {
-            max-width: 300px;
+            max-width: 350px;
             position: relative;
             transform: rotate(-8deg) ; 
             transition: transform 2.5s cubic-bezier(0,1.27,.32,1.02);
             opacity: 0;
+           
             img {
+                object-fit: cover;
                 transform: rotate(0deg);
             }
             .tagging_images{
@@ -244,6 +259,9 @@ hr {
     .image_itself{
         opacity: 1;
         animation: pull 2.5s cubic-bezier(0,1.27,.32,1.02) 0s 1 ;
+        &:hover {
+            cursor: url('data:image/png;base64,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'), pointer !important;
+        }
         .tagging_images{
             .image_one{
                 opacity: 1;
@@ -368,6 +386,71 @@ hr {
     }
 }
 
+.navbar {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    z-index: 9;
+    a {
+        color: #515151;
+        font-size: 12px;
+        font-family: 'Montserrat', sans-serif;;
+        margin-right: 20px;
+        text-decoration: none;
+        position: relative;
+        &.first {
+            padding-right: 20px;
+            color: #777777;
+            .dot {
+                position: absolute;
+                display: inline-block;
+                width: 4px;
+                height: 4px;
+                background-color: $primary_color;
+                top: 50%;
+                right: 0;
+                border-radius: 50%;
+                transform: translateY(-50%);
+            }
+            &:hover .dot {
+               animation: dot 1.4s linear;
+            }
+        }
+        &:hover {
+            color: $primary_color;
+        }
+    }
+}
+
+@keyframes dot {
+    0%, 50%, 100% {
+        width: 4px;
+        height: 4px;
+    }
+    25%, 75% {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+.scroll_down {
+    position: absolute;
+    bottom: 7%;
+    right: 5%;
+    z-index: 9;
+    transform: rotate(-10deg);
+    a {
+        font-family: $integral;
+        font-size: 14px;
+        color: $primary_color;
+        margin-right: 20px;
+        text-decoration: none;
+        transition: color .1s ease-out;
+        &:hover {
+            color: $sec_color;
+        }
+    }
+}
 
 .overlay_2{
     position: absolute;
@@ -449,15 +532,15 @@ hr {
 .project_section_wrapper{
     position: absolute;
     inset: 0;
-    background-color: $primary_color;
-    z-index: 4;
+    background-color: $sec_color;
+    z-index: 9;
     transform: translateX(-100%);
     transition:transform .6s cubic-bezier(.54,.85,0,.85) ;
     .project_inner_content{
         position: relative;
         inset: 0;
         height: 100%;
-        padding-top: 45px;
+        padding-top: 65px;
         .back_button{
             position: absolute;
             right: 30px;
@@ -476,7 +559,7 @@ hr {
         }
         .carousel_wrapper{
             height: 100%;
-            max-height: 400px;
+            max-height: 500px;
             transform: rotate(-3deg) translateX(-400%);
             overflow: hidden;
             transition: transform 2s cubic-bezier(0,1.53,0,1) ;
@@ -485,15 +568,38 @@ hr {
             .mySwiper{
                 height: 100%;
                 .swiper-slide{
-
+                    height: 100%;
                     .content_wrapper{
-                        height: 100%;
+                        width: 100%;
+                        // height: 100%;
                         transition: transform .3s ease-in-out;
                         transform-origin: top top;
                         cursor: pointer;
-                        img{
+                        max-width: 350px;
+                        h1 {
+                            color: #000;
+                            text-align: center;
+                            font-family: $monsterrat;
+                            font-size: 18px;
+                            font-weight: 600;
+                            margin-block: 12px;
+                        }
+                        p {
+                            text-align: center;
+                            font-size: 12px;
+                            color: #000;
+                            font-weight: 300;
+                            font-family: $monsterrat;
+                        }
+                        .img_wrapper {
+                            border: 2px solid $primary_color;
+                            max-height: 400px;
                             height: 100%;
-                            object-fit: contain;
+                            margin-bottom: 10px;
+                            img{
+                                height: 100%;
+                                object-fit: cover;
+                            }
                         }
                         &:hover{
                             transform: rotate(-5deg) translateY(-40px);

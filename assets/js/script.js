@@ -46,6 +46,10 @@ var swiper = new Swiper(".swiper-container", {
   }
 });
 
+document.querySelector(".scroll_down").addEventListener("click", (evt) => {
+  swiper.slideNext();
+});
+
 
 function updateCenterTextStyles(activeIndex) {
   var centerTextElements = document.querySelectorAll(".center_text");
@@ -69,7 +73,7 @@ function updateCenterTextStyles(activeIndex) {
   }
 }
 
-var swiper = new Swiper(".mySwiper", {
+var swiper2 = new Swiper(".mySwiper", {
   slidesPerView: 3,
   spaceBetween: 60,
   draggable: true,
@@ -117,9 +121,9 @@ backButton.addEventListener('click', function() {
 document.addEventListener("DOMContentLoaded", function () {
   // Get the .loading_screen element
   const loadingScreen = document.querySelector(".loading_screen");
-
   // Toggle the .away class after a delay (adjust the delay value as needed)
   setTimeout(function () {
     loadingScreen.classList.toggle("away");
   }, 4000); // 1000 milliseconds (1 second) delay, adjust as needed
 });
+
