@@ -75,6 +75,64 @@ h2 {
     letter-spacing: 0;
 }
 
+.loading_screen{
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    background-color: $primary_color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .5s ease-out;
+    .logo_wrapper{
+        max-width: 200px;
+        z-index: 11;
+        mix-blend-mode: multiply;
+    }
+    .cards{
+        transform: translateX(-100px) translateY(0px);
+        animation: upp 4s cubic-bezier(.1,1.48,.67,.89) 0s 1 ;
+        .first, .second{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            background-color: #fff;
+        }
+        .first{
+            transform: translate(-50%, -250%) rotate(-8deg);
+        }
+        .second{
+            transform: translate(-50%, -400%) rotate(-8deg);
+        }
+        .main{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-8deg);
+            width: 400px;
+            height: 400px;
+            background-color: #fff;
+            mix-blend-mode: multiply;
+        }
+    }
+    &.away{
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes upp{
+    0%{
+        transform: translateX(-100px) translateY(3000px);
+    }
+    100%{
+        transform: translateX(-100px) translateY(0px);
+    }
+}
+
+
+
 .swiper-container {
     width: 100%;
     height: calc(100% - 5%);

@@ -114,3 +114,12 @@ backButton.addEventListener('click', function() {
   projectSectionWrapper.classList.toggle('active');
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the .loading_screen element
+  const loadingScreen = document.querySelector(".loading_screen");
+
+  // Toggle the .away class after a delay (adjust the delay value as needed)
+  setTimeout(function () {
+    loadingScreen.classList.toggle("away");
+  }, 4000); // 1000 milliseconds (1 second) delay, adjust as needed
+});
