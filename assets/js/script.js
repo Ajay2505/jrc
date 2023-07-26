@@ -51,6 +51,7 @@ document.querySelector(".scroll_down").addEventListener("click", (evt) => {
 });
 
 
+
 function updateCenterTextStyles(activeIndex) {
   var centerTextElements = document.querySelectorAll(".center_text");
 
@@ -72,6 +73,10 @@ function updateCenterTextStyles(activeIndex) {
 
   }
 }
+
+
+
+
 
 var swiper2 = new Swiper(".mySwiper", {
   slidesPerView: 3,
